@@ -50,5 +50,18 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 
 ## Notes for the client
 
-- Product photography is currently placeholder color blocks — swap in real product photos under `frontend/static/images/products/` and update the `image` field in `backend/app/routers/products.py` (or the future database) once photography is available.
+- **Photography is temporary stock, not final product photos.** Images under `frontend/static/images/` (hero, category tiles, product cards) are free-to-use stock photos from [Pexels](https://www.pexels.com) (Pexels License — free for commercial use, no attribution required), standing in for real furniture/lifestyle photography. Replace them with actual product shoots before launch: swap the files in `frontend/static/images/products/` and `frontend/static/images/categories/`, and update the `image` field in `backend/app/routers/products.py` (or the future database) to match.
 - The product catalog currently lives in-memory in `backend/app/routers/products.py`. Swap this for a real database (e.g. PostgreSQL) before launch.
+
+### Stock photo sources (temporary)
+
+| File | Source |
+| --- | --- |
+| `images/hero/living-room-hero.jpg` | [Pexels photo 2029663](https://www.pexels.com/photo/set-of-living-room-furniture-2029663/) |
+| `images/categories/living-room.jpg` | [Pexels photo 6636320](https://www.pexels.com/photo/cozy-living-room-interior-with-wooden-furniture-and-comfy-couch-6636320/) |
+| `images/categories/dining-room.jpg` | [Pexels photo 3968056](https://www.pexels.com/photo/brown-wooden-dining-table-and-chairs-3968056/) |
+| `images/categories/bedroom.jpg` | [Pexels photo 5824522](https://www.pexels.com/photo/classic-bedroom-interior-with-wooden-furniture-and-antique-carpets-5824522/) |
+| `images/categories/outdoor.jpg` | [Pexels photo 8180361](https://www.pexels.com/photo/wooden-furniture-on-wooden-platform-8180361/) |
+| `images/products/anders-oak-dining-table.jpg` | [Pexels photo 534172](https://www.pexels.com/photo/brown-wooden-dining-table-with-beige-pendant-lamp-534172/) |
+| `images/products/marlow-boucle-lounge-chair.jpg` | [Pexels photo 16269026](https://www.pexels.com/photo/houseplants-by-the-window-and-next-to-an-armchair-in-a-room-16269026/) |
+| `images/products/haven-walnut-bookshelf.jpg` | [Pexels photo 2883049](https://www.pexels.com/photo/photo-of-a-wooden-bookshelf-2883049/) |

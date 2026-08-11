@@ -9,8 +9,8 @@
 </script>
 
 <a class="card" href="/">
-	<div class="thumb" style="--tone: {(product.id * 47) % 360}deg">
-		<span>{product.name}</span>
+	<div class="thumb">
+		<img src={product.image} alt={product.name} loading="lazy" />
 	</div>
 	<p class="category">{product.category}</p>
 	<h3>{product.name}</h3>
@@ -24,29 +24,23 @@
 
 	.thumb {
 		aspect-ratio: 4 / 5;
-		background: linear-gradient(
-			160deg,
-			hsl(var(--tone) 18% 88%) 0%,
-			hsl(var(--tone) 22% 74%) 100%
-		);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		padding: 1.5rem;
+		overflow: hidden;
+		background: var(--color-bg-alt);
 		margin-bottom: 1rem;
-		transition: opacity 0.2s ease;
 	}
 
-	.card:hover .thumb {
-		opacity: 0.85;
+	.thumb img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition:
+			transform 0.35s ease,
+			opacity 0.2s ease;
 	}
 
-	.thumb span {
-		font-family: var(--font-display);
-		font-size: 0.85rem;
-		letter-spacing: 0.04em;
-		color: rgba(32, 29, 26, 0.55);
+	.card:hover .thumb img {
+		transform: scale(1.04);
+		opacity: 0.92;
 	}
 
 	.category {

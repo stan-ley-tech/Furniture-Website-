@@ -5,10 +5,10 @@
 	let { data }: PageProps = $props();
 
 	const categories = [
-		{ name: 'Living Room', hue: '28deg' },
-		{ name: 'Dining Room', hue: '150deg' },
-		{ name: 'Bedroom', hue: '210deg' },
-		{ name: 'Outdoor', hue: '95deg' }
+		{ name: 'Living Room', image: '/images/categories/living-room.jpg' },
+		{ name: 'Dining Room', image: '/images/categories/dining-room.jpg' },
+		{ name: 'Bedroom', image: '/images/categories/bedroom.jpg' },
+		{ name: 'Outdoor', image: '/images/categories/outdoor.jpg' }
 	];
 </script>
 
@@ -20,7 +20,7 @@
 	/>
 </svelte:head>
 
-<section class="hero">
+<section class="hero" style="background-image: url('/images/hero/living-room-hero.jpg')">
 	<div class="hero-copy">
 		<p class="eyebrow">The 2026 Collection</p>
 		<h1>Furniture built from real wood, made to outlast trends.</h1>
@@ -38,7 +38,8 @@
 	</div>
 	<div class="category-grid">
 		{#each categories as cat}
-			<a class="category-tile" href="/" style="--tone: {cat.hue}">
+			<a class="category-tile" href="/">
+				<img src={cat.image} alt={cat.name} loading="lazy" />
 				<span>{cat.name}</span>
 			</a>
 		{/each}
@@ -83,12 +84,31 @@
 		height: min(78vh, 720px);
 		display: flex;
 		align-items: flex-end;
-		background: linear-gradient(180deg, var(--color-bg-alt) 0%, #d9cfc0 100%);
+		background-size: cover;
+		background-position: center;
+		position: relative;
 		padding: 0 var(--gutter) 4rem;
 	}
 
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(32, 29, 26, 0) 40%, rgba(32, 29, 26, 0.55) 100%);
+	}
+
 	.hero-copy {
+		position: relative;
 		max-width: 34rem;
+		color: #f7f5f1;
+	}
+
+	.hero-copy .eyebrow {
+		color: #e5ddd0;
+	}
+
+	.hero-copy .lede {
+		color: #ded5c6;
 	}
 
 	.hero-copy h1 {
@@ -122,14 +142,29 @@
 	}
 
 	.category-tile {
+		position: relative;
 		aspect-ratio: 3 / 4;
 		display: flex;
 		align-items: flex-end;
 		padding: 1.25rem;
-		background: linear-gradient(160deg, hsl(var(--tone) 20% 85%) 0%, hsl(var(--tone) 24% 68%) 100%);
+		overflow: hidden;
+	}
+
+	.category-tile img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.35s ease;
+	}
+
+	.category-tile:hover img {
+		transform: scale(1.04);
 	}
 
 	.category-tile span {
+		position: relative;
 		font-family: var(--font-display);
 		font-size: 1rem;
 		letter-spacing: 0.03em;
