@@ -4,7 +4,11 @@
 	let { product }: { product: Product } = $props();
 
 	const priceFormatted = $derived(
-		new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.price)
+		new Intl.NumberFormat('en-KE', {
+			style: 'currency',
+			currency: 'KES',
+			maximumFractionDigits: 0
+		}).format(product.price)
 	);
 </script>
 
