@@ -58,6 +58,17 @@
 	</div>
 </section>
 
+<section
+	class="design-cta"
+	style="background-image: url('/images/sections/design-consultation.jpg')"
+>
+	<div class="design-cta-content">
+		<h2>Get a Free Design Consultation</h2>
+		<p>Tell us about your space and one of our designers will help you plan it.</p>
+		<a class="btn btn-solid-light" href="/">Get Started</a>
+	</div>
+</section>
+
 <section class="featured container">
 	<div class="section-head">
 		<h2>Best Sellers</h2>
@@ -76,17 +87,6 @@
 			inventory.
 		</p>
 	{/if}
-</section>
-
-<section
-	class="design-cta"
-	style="background-image: url('/images/sections/design-consultation.jpg')"
->
-	<div class="design-cta-content">
-		<h2>Get a Free Design Consultation</h2>
-		<p>Tell us about your space and one of our designers will help you plan it.</p>
-		<a class="btn btn-solid-light" href="/">Get Started</a>
-	</div>
 </section>
 
 <section class="story">
