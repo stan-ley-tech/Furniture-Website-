@@ -109,3 +109,38 @@ img {
 	background: var(--color-accent-dark);
 	border-color: var(--color-accent-dark);
 }
+
+.simple-page {
+	max-width: 42rem;
+	margin: 0 auto;
+	padding: 4rem var(--gutter) 6rem;
+}
+
+.simple-page h1 {
+	font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+	margin-bottom: 1.5rem;
+}
+
+.simple-page h2 {
+	font-family: var(--font-display);
+	font-size: 1.15rem;
+	font-weight: 500;
+	margin: 2.25rem 0 0.75rem;
+}
+
+.simple-page p {
+	color: var(--color-text-muted);
+	line-height: 1.7;
+	margin-bottom: 1rem;
+}
+
+.simple-page ul {
+	margin: 0 0 1.25rem 1.25rem;
+	color: var(--color-text-muted);
+	line-height: 1.8;
+}
+
+.simple-page a {
+	color: var(--color-accent-dark);
+	text-decoration: underline;
+}

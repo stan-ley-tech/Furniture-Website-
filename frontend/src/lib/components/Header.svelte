@@ -1,7 +1,15 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
 
-	const links = ['New Arrivals', 'Living', 'Dining', 'Bedroom', 'Storage', 'Outdoor', 'Sale'];
+	const links = [
+		{ label: 'New Arrivals', href: '/shop' },
+		{ label: 'Living', href: '/shop/living-room' },
+		{ label: 'Dining', href: '/shop/dining-room' },
+		{ label: 'Bedroom', href: '/shop/bedroom' },
+		{ label: 'Storage', href: '/shop/storage' },
+		{ label: 'Outdoor', href: '/shop/outdoor' },
+		{ label: 'Sale', href: '/shop' }
+	];
 	let menuOpen = $state(false);
 </script>
 
@@ -11,10 +19,6 @@
 
 <header>
 	<div class="container bar">
-		<button class="menu-toggle" onclick={() => (menuOpen = !menuOpen)} aria-label="Toggle menu">
-			☰
-		</button>
-
 		<a href="/" class="logo">
 			<Logo size={38} />
 			<span class="logo-text">Elite Wood <span class="accent">Furniture</span></span>
@@ -22,24 +26,30 @@
 
 		<nav class:open={menuOpen}>
 			{#each links as link}
-				<a href="/">{link}</a>
+				<a href={link.href}>{link.label}</a>
 			{/each}
 		</nav>
 
-		<div class="actions">
-			<button class="action" aria-label="Search">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<span>Search</span>
-			</button>
+		<div class="nav-right">
+			<div class="actions">
+				<button class="action" aria-label="Search">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<span>Search</span>
+				</button>
 
-			<button class="action" aria-label="Account">
-				<i class="fa-solid fa-user"></i>
-				<span>Account</span>
-			</button>
+				<button class="action" aria-label="Account">
+					<i class="fa-solid fa-user"></i>
+					<span>Account</span>
+				</button>
 
-			<button class="action" aria-label="Cart, 0 items">
-				<i class="fa-solid fa-bag-shopping"></i>
-				<span>Cart (0)</span>
+				<button class="action" aria-label="Cart, 0 items">
+					<i class="fa-solid fa-bag-shopping"></i>
+					<span>Cart (0)</span>
+				</button>
+			</div>
+
+			<button class="menu-toggle" onclick={() => (menuOpen = !menuOpen)} aria-label="Toggle menu">
+				<i class="fa-solid {menuOpen ? 'fa-xmark' : 'fa-bars'}"></i>
 			</button>
 		</div>
 	</div>
@@ -77,6 +87,7 @@
 		align-items: center;
 		gap: 0.65rem;
 		white-space: nowrap;
+		flex-shrink: 0;
 	}
 
 	.logo-text {
@@ -111,6 +122,13 @@
 
 	nav a:hover {
 		border-color: var(--color-accent);
+	}
+
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		flex-shrink: 0;
 	}
 
 	.actions {
@@ -152,7 +170,7 @@
 		display: none;
 		background: none;
 		border: none;
-		font-size: 1.1rem;
+		font-size: 1.2rem;
 		color: var(--color-text);
 	}
 
@@ -197,6 +215,12 @@
 
 		.action i {
 			font-size: 1.25rem;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.logo-text {
+			display: none;
 		}
 	}
 </style>

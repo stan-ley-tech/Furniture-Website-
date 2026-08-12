@@ -1,15 +1,11 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/ProductCard.svelte';
+	import { categories as allCategories } from '$lib/categories';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
-	const categories = [
-		{ name: 'Living Room', image: '/images/categories/living-room.jpg' },
-		{ name: 'Dining Room', image: '/images/categories/dining-room.jpg' },
-		{ name: 'Bedroom', image: '/images/categories/bedroom.jpg' },
-		{ name: 'Outdoor', image: '/images/categories/outdoor.jpg' }
-	];
+	const roomCategories = allCategories.filter((c) => c.slug !== 'storage');
 </script>
 
 <svelte:head>
@@ -38,8 +34,8 @@
 			Solid hardwood furniture, hand-finished in small batches for lasting quality.
 		</p>
 		<div class="hero-actions">
-			<a class="btn-ghost" href="/">Shop Living Room</a>
-			<a class="btn-ghost" href="/">Shop All New</a>
+			<a class="btn-ghost" href="/shop/living-room">Shop Living Room</a>
+			<a class="btn-ghost" href="/shop">Shop All New</a>
 		</div>
 	</div>
 </section>
@@ -49,8 +45,8 @@
 		<h2>Shop by Room</h2>
 	</div>
 	<div class="category-grid">
-		{#each categories as cat}
-			<a class="category-tile" href="/">
+		{#each roomCategories as cat}
+			<a class="category-tile" href="/shop/{cat.slug}">
 				<img src={cat.image} alt={cat.name} loading="lazy" />
 				<span>{cat.name}</span>
 			</a>
@@ -65,14 +61,14 @@
 	<div class="design-cta-content">
 		<h2>Get a Free Design Consultation</h2>
 		<p>Tell us about your space and one of our designers will help you plan it.</p>
-		<a class="btn btn-solid-light" href="/">Get Started</a>
+		<a class="btn btn-solid-light" href="/consultation">Get Started</a>
 	</div>
 </section>
 
 <section class="featured container">
 	<div class="section-head">
 		<h2>Best Sellers</h2>
-		<a class="btn" href="/">View All</a>
+		<a class="btn" href="/shop">View All</a>
 	</div>
 
 	{#if data.products.length > 0}
@@ -169,7 +165,7 @@
 			A hand-joined oak frame with room to stretch out &mdash; comfort that holds its shape,
 			season after season.
 		</p>
-		<a class="btn-shop-now" href="/">Shop Now</a>
+		<a class="btn-shop-now" href="/products/sutton-wingback-chair">Shop Now</a>
 	</div>
 </section>
 
@@ -183,7 +179,7 @@
 				used to be made — mortise-and-tenon joints, kiln-dried hardwood, and finishes that age
 				beautifully.
 			</p>
-			<a class="btn" href="/">Read Our Story</a>
+			<a class="btn" href="/our-story">Read Our Story</a>
 		</div>
 		<div class="story-image">
 			<img src="/images/sections/our-craft.jpg" alt="Craftsman hand-cutting a wood joint" loading="lazy" />
@@ -374,7 +370,8 @@
 
 	.value-props {
 		margin-top: 4rem;
-		padding: 3.5rem 0;
+		padding-top: 3.5rem;
+		padding-bottom: 3.5rem;
 		border-top: 1px solid var(--color-border);
 		border-bottom: 1px solid var(--color-border);
 	}

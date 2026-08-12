@@ -13,12 +13,31 @@ export type Product = {
 	in_stock: boolean;
 };
 
-export async function getProducts(fetchFn: typeof fetch = fetch): Promise<Product[]> {
+export async function getProducts(
+	fetchFn: typeof fetch = fetch,
+	category?: string
+): Promise<Product[]> {
 	try {
-		const res = await fetchFn(`${API_BASE}/api/products`);
+		const url = category
+			? `${API_BASE}/api/products?category=${encodeURIComponent(category)}`
+			: `${API_BASE}/api/products`;
+		const res = await fetchFn(url);
 		if (!res.ok) throw new Error(`API error: ${res.status}`);
 		return await res.json();
 	} catch {
 		return [];
+	}
+}
+
+export async function getProduct(
+	slug: string,
+	fetchFn: typeof fetch = fetch
+): Promise<Product | null> {
+	try {
+		const res = await fetchFn(`${API_BASE}/api/products/${encodeURIComponent(slug)}`);
+		if (!res.ok) return null;
+		return await res.json();
+	} catch {
+		return null;
 	}
 }

@@ -53,6 +53,10 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 - **Photography and video are temporary stock, not final product assets.** Images/video under `frontend/static/images/` and `frontend/static/videos/` are free-to-use stock media from [Pexels](https://www.pexels.com) (Pexels License — free for commercial use, no attribution required), standing in for real furniture/lifestyle photography and a real workshop video. Replace them with actual shoots before launch: swap the files in `frontend/static/images/products/`, `frontend/static/images/categories/`, `frontend/static/images/sections/`, and `frontend/static/videos/`, and update the `image` field in `backend/app/routers/products.py` (or the future database) to match.
 - **The logo is a placeholder mark**, not a designed brand identity — a simple "EW" monogram (`frontend/src/lib/components/Logo.svelte`, also used as the favicon at `frontend/src/lib/assets/favicon.svg`). Commission real logo design before launch.
 - The product catalog currently lives in-memory in `backend/app/routers/products.py`. Swap this for a real database (e.g. PostgreSQL) before launch.
+- **"Add to Cart" and the newsletter/consultation/contact forms are UI only** — they don't submit anywhere yet (the consultation and contact forms just show an inline confirmation client-side). Wire these to real backend endpoints (cart/session, email delivery, CRM) before launch.
+- **Contact details are placeholders** (`frontend/src/routes/contact/+page.svelte`) — replace the email, phone, and showroom address with real ones.
+- **Policy pages (Shipping & Returns, Warranty, Sustainability, Careers, FAQ) have starter copy**, written to be directionally correct for a solid-wood furniture business but not reviewed against your actual policies — have someone confirm the specifics (timelines, fees, warranty terms) before launch.
+- **Catalog is thin on purpose** — 6 products across 5 categories, just enough to make navigation and the listing pages real. Add real inventory before launch; category pages with no products show a graceful "check back soon" message rather than breaking.
 
 ### Stock media sources (temporary)
 
@@ -69,6 +73,8 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 | `images/sections/design-consultation.jpg` | [Pexels photo 6583355](https://www.pexels.com/photo/hand-of-a-person-holding-wooden-plank-samples-6583355/) |
 | `images/sections/our-craft.jpg` | [Pexels photo 5974283](https://www.pexels.com/photo/focused-artisan-making-hole-on-plank-with-hammer-and-chisel-5974283/) |
 | `images/sections/meet-sutton.jpg` | [Pexels photo 9220877](https://www.pexels.com/photo/brown-padded-armchairs-beside-the-glass-window-9220877/) |
+| `images/products/willow-platform-bed.jpg` | [Pexels photo 7303688](https://www.pexels.com/photo/messy-bed-7303688/) |
+| `images/products/cedar-adirondack-chair.jpg` | [Pexels photo 11586228](https://www.pexels.com/photo/brown-wooden-armchair-11586228/) |
 
 ### Third-party assets
 

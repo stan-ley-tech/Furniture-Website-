@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { Product } from '$lib/api';
 
-	let { product }: { product: Product } = $props();
+	let { product, showDescription = false }: { product: Product; showDescription?: boolean } =
+		$props();
 
 	const priceFormatted = $derived(
 		new Intl.NumberFormat('en-KE', {
@@ -12,12 +13,15 @@
 	);
 </script>
 
-<a class="card" href="/">
+<a class="card" href="/products/{product.slug}">
 	<div class="thumb">
 		<img src={product.image} alt={product.name} loading="lazy" />
 	</div>
 	<p class="category">{product.category}</p>
 	<h3>{product.name}</h3>
+	{#if showDescription}
+		<p class="description">{product.description}</p>
+	{/if}
 	<p class="price">{priceFormatted}</p>
 </a>
 
@@ -59,6 +63,13 @@
 		font-size: 1rem;
 		font-weight: 500;
 		margin-bottom: 0.35rem;
+	}
+
+	.description {
+		font-size: 0.85rem;
+		line-height: 1.5;
+		color: var(--color-text-muted);
+		margin-bottom: 0.5rem;
 	}
 
 	.price {

@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { categories } from '$lib/categories';
+</script>
+
 <footer>
 	<div class="container grid">
 		<div class="brand">
@@ -7,27 +11,25 @@
 
 		<div>
 			<p class="eyebrow">Shop</p>
-			<a href="/">Living Room</a>
-			<a href="/">Dining Room</a>
-			<a href="/">Bedroom</a>
-			<a href="/">Storage</a>
-			<a href="/">Outdoor</a>
+			{#each categories as cat}
+				<a href="/shop/{cat.slug}">{cat.name}</a>
+			{/each}
 		</div>
 
 		<div>
 			<p class="eyebrow">Company</p>
-			<a href="/">Our Story</a>
-			<a href="/">Sustainability</a>
-			<a href="/">Craftsmanship</a>
-			<a href="/">Careers</a>
+			<a href="/our-story">Our Story</a>
+			<a href="/sustainability">Sustainability</a>
+			<a href="/our-story">Craftsmanship</a>
+			<a href="/careers">Careers</a>
 		</div>
 
 		<div>
 			<p class="eyebrow">Support</p>
-			<a href="/">Contact Us</a>
-			<a href="/">Shipping &amp; Returns</a>
-			<a href="/">Warranty</a>
-			<a href="/">FAQ</a>
+			<a href="/contact">Contact Us</a>
+			<a href="/shipping-returns">Shipping &amp; Returns</a>
+			<a href="/warranty">Warranty</a>
+			<a href="/faq">FAQ</a>
 		</div>
 
 		<div class="newsletter">
