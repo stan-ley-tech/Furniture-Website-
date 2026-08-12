@@ -409,7 +409,7 @@
 
 	.design-cta {
 		margin-top: 5rem;
-		min-height: 320px;
+		min-height: 480px;
 		display: flex;
 		align-items: center;
 		background-size: cover;
@@ -426,29 +426,29 @@
 
 	.design-cta-content {
 		position: relative;
-		max-width: 26rem;
+		max-width: 32rem;
 		padding: 3rem var(--gutter);
 		color: #f7f5f1;
 	}
 
 	.design-cta-content h2 {
-		font-size: clamp(1.5rem, 2.6vw, 2rem);
+		font-size: clamp(2rem, 3.6vw, 2.75rem);
 		font-weight: 400;
 	}
 
 	.design-cta-content p {
-		margin: 0.75rem 0 1.5rem;
+		margin: 1.1rem 0 2rem;
 		color: #e5ddd0;
-		font-size: 0.95rem;
-		line-height: 1.55;
+		font-size: 1.15rem;
+		line-height: 1.6;
 	}
 
 	.btn-solid-light {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.85rem 2rem;
-		font-size: 0.8rem;
+		padding: 1.05rem 2.5rem;
+		font-size: 0.88rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 		background: #f7f5f1;
@@ -465,7 +465,7 @@
 
 	.feature-cta {
 		margin-top: 5rem;
-		min-height: 460px;
+		min-height: 600px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -491,30 +491,30 @@
 
 	.feature-cta-content {
 		position: relative;
-		max-width: 38rem;
+		max-width: 44rem;
 		color: #f7f5f1;
 	}
 
 	.feature-cta-eyebrow {
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.9rem;
 		font-weight: 700;
-		letter-spacing: 0.14em;
+		letter-spacing: 0.16em;
 		text-transform: uppercase;
-		margin-bottom: 0.75rem;
+		margin-bottom: 1rem;
 	}
 
 	.feature-cta-content h2 {
 		font-family: var(--font-body);
 		font-weight: 700;
-		font-size: clamp(2rem, 4.2vw, 3rem);
-		line-height: 1.15;
+		font-size: clamp(2.6rem, 5.4vw, 4.2rem);
+		line-height: 1.1;
 	}
 
 	.feature-cta-body {
-		margin: 1.1rem auto 1.75rem;
-		max-width: 30rem;
-		font-size: 1rem;
+		margin: 1.5rem auto 2.25rem;
+		max-width: 34rem;
+		font-size: 1.2rem;
 		line-height: 1.6;
 		color: #ede8df;
 	}
@@ -523,10 +523,10 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.9rem 2.25rem;
+		padding: 1.1rem 2.75rem;
 		background: #ffffff;
 		color: #201d1a;
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 		font-weight: 600;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
@@ -560,6 +560,8 @@
 		width: 100%;
 		aspect-ratio: 4 / 3;
 		object-fit: cover;
+		mask-image: linear-gradient(to right, transparent 0%, black 38%, black 100%);
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 38%, black 100%);
 	}
 
 	@media (max-width: 860px) {
@@ -583,6 +585,11 @@
 			order: -1;
 		}
 
+		.story-image img {
+			mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+			-webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+		}
+
 		.design-cta::before {
 			background: linear-gradient(180deg, rgba(20, 16, 12, 0.35) 0%, rgba(20, 16, 12, 0.75) 100%);
 		}
@@ -593,7 +600,11 @@
 		}
 
 		.feature-cta {
-			min-height: 360px;
+			min-height: 460px;
+		}
+
+		.design-cta {
+			min-height: 400px;
 		}
 	}
 
