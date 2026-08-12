@@ -57,7 +57,7 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 
 | File | Source |
 | --- | --- |
-| `images/hero/living-room-hero.jpg` | [Pexels photo 2029663](https://www.pexels.com/photo/set-of-living-room-furniture-2029663/) |
+| `images/hero/living-room-hero.jpg` | [Pexels photo 33096005](https://www.pexels.com/photo/cozy-minimalist-interior-with-soft-lighting-33096005/) |
 | `images/categories/living-room.jpg` | [Pexels photo 6636320](https://www.pexels.com/photo/cozy-living-room-interior-with-wooden-furniture-and-comfy-couch-6636320/) |
 | `images/categories/dining-room.jpg` | [Pexels photo 3968056](https://www.pexels.com/photo/brown-wooden-dining-table-and-chairs-3968056/) |
 | `images/categories/bedroom.jpg` | [Pexels photo 5824522](https://www.pexels.com/photo/classic-bedroom-interior-with-wooden-furniture-and-antique-carpets-5824522/) |

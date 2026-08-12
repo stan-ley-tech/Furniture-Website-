@@ -3,7 +3,9 @@
 	let menuOpen = $state(false);
 </script>
 
-<div class="announcement">Free shipping on orders over $99 &mdash; Handcrafted, sustainably sourced wood furniture</div>
+<div class="announcement">
+	Free shipping on orders over Ksh 15,000 &mdash; Handcrafted, sustainably sourced wood furniture
+</div>
 
 <header>
 	<div class="container bar">
@@ -20,9 +22,32 @@
 		</nav>
 
 		<div class="actions">
-			<button aria-label="Search">Search</button>
-			<button aria-label="Account">Account</button>
-			<button aria-label="Cart">Cart (0)</button>
+			<button class="action" aria-label="Search">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+					<circle cx="11" cy="11" r="7.25" />
+					<line x1="21" y1="21" x2="16.2" y2="16.2" stroke-linecap="round" />
+				</svg>
+				<span>Search</span>
+			</button>
+
+			<button class="action" aria-label="Account">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+					<circle cx="12" cy="8.25" r="3.75" />
+					<path d="M4.5 20c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5" stroke-linecap="round" />
+				</svg>
+				<span>Account</span>
+			</button>
+
+			<button class="action" aria-label="Cart, 0 items">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+					<path
+						d="M7 8h10l-.9 10.1a1.5 1.5 0 0 1-1.5 1.4H9.4a1.5 1.5 0 0 1-1.5-1.4L7 8z"
+						stroke-linejoin="round"
+					/>
+					<path d="M9 8V6.5a3 3 0 0 1 6 0V8" stroke-linecap="round" />
+				</svg>
+				<span>Cart (0)</span>
+			</button>
 		</div>
 	</div>
 </header>
@@ -74,7 +99,9 @@
 	}
 
 	nav a {
-		font-size: 0.78rem;
+		font-family: var(--font-display);
+		font-size: 0.8rem;
+		font-weight: 500;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		color: var(--color-text);
@@ -89,16 +116,37 @@
 
 	.actions {
 		display: flex;
-		gap: 1.25rem;
+		gap: 1.75rem;
 	}
 
-	.actions button {
+	.action {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.3rem;
 		background: none;
 		border: none;
-		font-size: 0.75rem;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
 		color: var(--color-text);
+		opacity: 0.85;
+		transition: opacity 0.2s ease;
+	}
+
+	.action:hover {
+		opacity: 1;
+	}
+
+	.action svg {
+		width: 21px;
+		height: 21px;
+	}
+
+	.action span {
+		font-family: var(--font-display);
+		font-size: 0.68rem;
+		font-weight: 500;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		white-space: nowrap;
 	}
 
 	.menu-toggle {
@@ -141,12 +189,16 @@
 		}
 
 		.actions {
-			gap: 0.75rem;
+			gap: 1.1rem;
 		}
 
-		.actions button:nth-child(1),
-		.actions button:nth-child(2) {
+		.action span {
 			display: none;
+		}
+
+		.action svg {
+			width: 22px;
+			height: 22px;
 		}
 	}
 </style>
