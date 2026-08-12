@@ -7,6 +7,25 @@
 		<div class="brand">
 			<h3>Elite Wood <span>Furniture</span></h3>
 			<p>Handcrafted furniture in solid wood, built to last generations.</p>
+			<p class="location"><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</p>
+			<div class="socials">
+				<a
+					href="https://instagram.com/elitewoodfurniture"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Elite Wood Furniture on Instagram"
+				>
+					<i class="fa-brands fa-instagram"></i>
+				</a>
+				<a
+					href="https://tiktok.com/@elitewoodfurniture"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Elite Wood Furniture on TikTok"
+				>
+					<i class="fa-brands fa-tiktok"></i>
+				</a>
+			</div>
 		</div>
 
 		<div>
@@ -77,6 +96,43 @@
 		color: var(--color-text-muted);
 		font-size: 0.9rem;
 		line-height: 1.6;
+	}
+
+	.location {
+		margin-top: 0.75rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.location i {
+		color: var(--color-accent);
+	}
+
+	.socials {
+		display: flex;
+		gap: 0.85rem;
+		margin-top: 1.25rem;
+	}
+
+	.socials a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		border: 1px solid var(--color-border);
+		border-radius: 50%;
+		color: var(--color-text);
+		font-size: 1rem;
+		transition:
+			border-color 0.2s ease,
+			color 0.2s ease;
+	}
+
+	.socials a:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent-dark);
 	}
 
 	.eyebrow {
