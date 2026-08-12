@@ -6,6 +6,7 @@ A full-stack e-commerce website for Elite Wood Furniture, a solid-wood furniture
 
 - **Frontend:** [SvelteKit](https://svelte.dev/docs/kit) (TypeScript)
 - **Backend:** [FastAPI](https://fastapi.tiangolo.com/) (Python)
+- **Database:** [Supabase](https://supabase.com/) (Postgres)
 
 ## Project structure
 
@@ -32,6 +33,7 @@ cd backend
 python -m venv venv
 source venv/Scripts/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+cp .env.example .env   # fill in SUPABASE_URL and SUPABASE_KEY
 uvicorn app.main:app --reload --port 8001
 ```
 
@@ -48,11 +50,17 @@ npm run dev
 
 The dev server prints the local URL (defaults to `http://localhost:5173`, but will pick the next free port if that one is taken).
 
+## Deployment
+
+- **Database:** Supabase project `elite-wood-furniture` (Postgres). Schema and seed data applied via migrations — see `backend/app/db.py` for the client setup.
+- **Backend:** deploys to [Render](https://render.com/) as a web service, defined by `render.yaml` at the repo root (connect the repo in the Render dashboard and it picks up the blueprint automatically). Set `SUPABASE_URL`, `SUPABASE_KEY`, and `FRONTEND_ORIGIN` (the deployed Vercel URL) as environment variables in Render — they're intentionally not stored in the blueprint.
+- **Frontend:** deploys to [Vercel](https://vercel.com/). Set `PUBLIC_API_BASE_URL` to the deployed Render backend URL as a Vercel environment variable.
+
 ## Notes for the client
 
 - **Photography and video are temporary stock, not final product assets.** Images/video under `frontend/static/images/` and `frontend/static/videos/` are free-to-use stock media from [Pexels](https://www.pexels.com) (Pexels License — free for commercial use, no attribution required), standing in for real furniture/lifestyle photography and a real workshop video. Replace them with actual shoots before launch: swap the files in `frontend/static/images/products/`, `frontend/static/images/categories/`, `frontend/static/images/sections/`, and `frontend/static/videos/`, and update the `image` field in `backend/app/routers/products.py` (or the future database) to match.
 - **The logo is a placeholder mark**, not a designed brand identity — a simple "EW" monogram (`frontend/src/lib/components/Logo.svelte`, also used as the favicon at `frontend/src/lib/assets/favicon.svg`). Commission real logo design before launch.
-- The product catalog currently lives in-memory in `backend/app/routers/products.py`. Swap this for a real database (e.g. PostgreSQL) before launch.
+- **The product catalog lives in Supabase** (Postgres) in the `products` table, queried via `backend/app/db.py`. Row-level security is enabled with a public read-only policy; the backend uses the publishable (anon) key since it only needs read access. There's no admin UI yet to manage products — add/edit/remove rows via the Supabase dashboard or SQL until one exists.
 - **Cart, search, sign-in, and checkout are real but client-side only** — no backend involved. The cart (`frontend/src/lib/cart.ts`) persists to `localStorage` and actually works (add/remove/update quantity, badge count, checkout summary); search filters the live product catalog; but there's no real authentication, payment processing, inventory reservation, or order storage behind any of it. Wire these to real backend endpoints (auth, payments, orders) before launch.
 - **The newsletter, consultation, and contact forms are UI only** — they don't submit anywhere yet, just show an inline confirmation client-side. Wire these to real backend endpoints (email delivery, CRM) before launch.
 - **Contact details are placeholders** (`frontend/src/routes/contact/+page.svelte`) — replace the email, phone, and showroom address with real ones.
