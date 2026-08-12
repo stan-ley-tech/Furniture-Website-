@@ -1,5 +1,7 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/ProductCard.svelte';
+	import { cart } from '$lib/cart';
+	import { cartOpen } from '$lib/ui';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -11,6 +13,16 @@
 			maximumFractionDigits: 0
 		}).format(data.product.price)
 	);
+
+	function addToCart() {
+		cart.add({
+			slug: data.product.slug,
+			name: data.product.name,
+			price: data.product.price,
+			image: data.product.image
+		});
+		cartOpen.set(true);
+	}
 </script>
 
 <svelte:head>
@@ -45,7 +57,9 @@
 			<p class="stock out-of-stock">Out of Stock</p>
 		{/if}
 
-		<button class="btn btn-solid" type="button">Add to Cart</button>
+		<button class="btn btn-solid" type="button" onclick={addToCart} disabled={!data.product.in_stock}
+			>Add to Cart</button
+		>
 
 		<dl class="details">
 			<div>

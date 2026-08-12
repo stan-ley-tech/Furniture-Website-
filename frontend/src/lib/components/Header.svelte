@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
+	import { cartCount } from '$lib/cart';
+	import { cartOpen, searchOpen } from '$lib/ui';
 
 	const links = [
 		{ label: 'New Arrivals', href: '/shop' },
@@ -32,19 +34,23 @@
 
 		<div class="nav-right">
 			<div class="actions">
-				<button class="action" aria-label="Search">
+				<button class="action" aria-label="Search" onclick={() => searchOpen.set(true)}>
 					<i class="fa-solid fa-magnifying-glass"></i>
 					<span>Search</span>
 				</button>
 
-				<button class="action" aria-label="Account">
+				<a class="action" href="/account" aria-label="Account">
 					<i class="fa-solid fa-user"></i>
 					<span>Account</span>
-				</button>
+				</a>
 
-				<button class="action" aria-label="Cart, 0 items">
+				<button
+					class="action"
+					aria-label="Cart, {$cartCount} items"
+					onclick={() => cartOpen.set(true)}
+				>
 					<i class="fa-solid fa-bag-shopping"></i>
-					<span>Cart (0)</span>
+					<span>Cart ({$cartCount})</span>
 				</button>
 			</div>
 
