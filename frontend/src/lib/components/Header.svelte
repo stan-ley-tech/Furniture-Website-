@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Logo from './Logo.svelte';
+
 	const links = ['New Arrivals', 'Living', 'Dining', 'Bedroom', 'Storage', 'Outdoor', 'Sale'];
 	let menuOpen = $state(false);
 </script>
@@ -13,7 +15,10 @@
 			☰
 		</button>
 
-		<a href="/" class="logo">Elite Wood <span>Furniture</span></a>
+		<a href="/" class="logo">
+			<Logo size={38} />
+			<span class="logo-text">Elite Wood <span class="accent">Furniture</span></span>
+		</a>
 
 		<nav class:open={menuOpen}>
 			{#each links as link}
@@ -23,29 +28,17 @@
 
 		<div class="actions">
 			<button class="action" aria-label="Search">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-					<circle cx="11" cy="11" r="7.25" />
-					<line x1="21" y1="21" x2="16.2" y2="16.2" stroke-linecap="round" />
-				</svg>
+				<i class="fa-solid fa-magnifying-glass"></i>
 				<span>Search</span>
 			</button>
 
 			<button class="action" aria-label="Account">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-					<circle cx="12" cy="8.25" r="3.75" />
-					<path d="M4.5 20c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5" stroke-linecap="round" />
-				</svg>
+				<i class="fa-solid fa-user"></i>
 				<span>Account</span>
 			</button>
 
 			<button class="action" aria-label="Cart, 0 items">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-					<path
-						d="M7 8h10l-.9 10.1a1.5 1.5 0 0 1-1.5 1.4H9.4a1.5 1.5 0 0 1-1.5-1.4L7 8z"
-						stroke-linejoin="round"
-					/>
-					<path d="M9 8V6.5a3 3 0 0 1 6 0V8" stroke-linecap="round" />
-				</svg>
+				<i class="fa-solid fa-bag-shopping"></i>
 				<span>Cart (0)</span>
 			</button>
 		</div>
@@ -80,13 +73,19 @@
 	}
 
 	.logo {
-		font-family: var(--font-display);
-		font-size: 1.35rem;
-		letter-spacing: 0.04em;
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
 		white-space: nowrap;
 	}
 
-	.logo span {
+	.logo-text {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		letter-spacing: 0.04em;
+	}
+
+	.logo-text .accent {
 		font-weight: 300;
 		color: var(--color-accent);
 	}
@@ -135,9 +134,9 @@
 		opacity: 1;
 	}
 
-	.action svg {
-		width: 21px;
-		height: 21px;
+	.action i {
+		font-size: 1.15rem;
+		line-height: 1;
 	}
 
 	.action span {
@@ -196,9 +195,8 @@
 			display: none;
 		}
 
-		.action svg {
-			width: 22px;
-			height: 22px;
+		.action i {
+			font-size: 1.25rem;
 		}
 	}
 </style>

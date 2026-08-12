@@ -50,14 +50,15 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 
 ## Notes for the client
 
-- **Photography is temporary stock, not final product photos.** Images under `frontend/static/images/` (hero, category tiles, product cards) are free-to-use stock photos from [Pexels](https://www.pexels.com) (Pexels License — free for commercial use, no attribution required), standing in for real furniture/lifestyle photography. Replace them with actual product shoots before launch: swap the files in `frontend/static/images/products/` and `frontend/static/images/categories/`, and update the `image` field in `backend/app/routers/products.py` (or the future database) to match.
+- **Photography and video are temporary stock, not final product assets.** Images/video under `frontend/static/images/` and `frontend/static/videos/` are free-to-use stock media from [Pexels](https://www.pexels.com) (Pexels License — free for commercial use, no attribution required), standing in for real furniture/lifestyle photography and a real workshop video. Replace them with actual shoots before launch: swap the files in `frontend/static/images/products/`, `frontend/static/images/categories/`, `frontend/static/images/sections/`, and `frontend/static/videos/`, and update the `image` field in `backend/app/routers/products.py` (or the future database) to match.
+- **The logo is a placeholder mark**, not a designed brand identity — a simple "EW" monogram (`frontend/src/lib/components/Logo.svelte`, also used as the favicon at `frontend/src/lib/assets/favicon.svg`). Commission real logo design before launch.
 - The product catalog currently lives in-memory in `backend/app/routers/products.py`. Swap this for a real database (e.g. PostgreSQL) before launch.
 
-### Stock photo sources (temporary)
+### Stock media sources (temporary)
 
 | File | Source |
 | --- | --- |
-| `images/hero/living-room-hero.jpg` | [Pexels photo 33096005](https://www.pexels.com/photo/cozy-minimalist-interior-with-soft-lighting-33096005/) |
+| `videos/craft-hero.mp4` | [Pexels video 5973221](https://www.pexels.com/video/a-person-working-on-wood-5973221/) |
 | `images/categories/living-room.jpg` | [Pexels photo 6636320](https://www.pexels.com/photo/cozy-living-room-interior-with-wooden-furniture-and-comfy-couch-6636320/) |
 | `images/categories/dining-room.jpg` | [Pexels photo 3968056](https://www.pexels.com/photo/brown-wooden-dining-table-and-chairs-3968056/) |
 | `images/categories/bedroom.jpg` | [Pexels photo 5824522](https://www.pexels.com/photo/classic-bedroom-interior-with-wooden-furniture-and-antique-carpets-5824522/) |
@@ -65,3 +66,9 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 | `images/products/anders-oak-dining-table.jpg` | [Pexels photo 534172](https://www.pexels.com/photo/brown-wooden-dining-table-with-beige-pendant-lamp-534172/) |
 | `images/products/marlow-boucle-lounge-chair.jpg` | [Pexels photo 16269026](https://www.pexels.com/photo/houseplants-by-the-window-and-next-to-an-armchair-in-a-room-16269026/) |
 | `images/products/haven-walnut-bookshelf.jpg` | [Pexels photo 2883049](https://www.pexels.com/photo/photo-of-a-wooden-bookshelf-2883049/) |
+| `images/sections/design-consultation.jpg` | [Pexels photo 6583355](https://www.pexels.com/photo/hand-of-a-person-holding-wooden-plank-samples-6583355/) |
+| `images/sections/our-craft.jpg` | [Pexels photo 5974283](https://www.pexels.com/photo/focused-artisan-making-hole-on-plank-with-hammer-and-chisel-5974283/) |
+
+### Third-party assets
+
+- **Font Awesome Free** (CDN, `frontend/src/app.html`) for nav icons — [Font Awesome Free License](https://fontawesome.com/license/free) (icons: CC BY 4.0, free for commercial use).

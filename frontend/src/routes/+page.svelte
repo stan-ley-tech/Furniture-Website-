@@ -20,11 +20,15 @@
 	/>
 </svelte:head>
 
-<section class="hero" style="background-image: url('/images/hero/living-room-hero.jpg')">
+<section class="hero" style="background-image: url('/images/sections/our-craft.jpg')">
+	<video class="hero-video" autoplay muted loop playsinline poster="/images/sections/our-craft.jpg">
+		<source src="/videos/craft-hero.mp4" type="video/mp4" />
+	</video>
+
 	<div class="hero-caption">
-		<p class="hero-caption-eyebrow">In the Collection<br />Quiet Corners</p>
+		<p class="hero-caption-eyebrow">Behind the Scenes<br />In the Workshop</p>
 		<p class="hero-caption-body">
-			Solid oak seating and warm textiles, styled the way our pieces live in a real home.
+			Every piece starts as rough-sawn hardwood, shaped and joined entirely by hand.
 		</p>
 	</div>
 
@@ -74,16 +78,32 @@
 	{/if}
 </section>
 
+<section
+	class="design-cta"
+	style="background-image: url('/images/sections/design-consultation.jpg')"
+>
+	<div class="design-cta-content">
+		<h2>Get a Free Design Consultation</h2>
+		<p>Tell us about your space and one of our designers will help you plan it.</p>
+		<a class="btn btn-solid-light" href="/">Get Started</a>
+	</div>
+</section>
+
 <section class="story">
-	<div class="container story-inner">
-		<p class="eyebrow">Our Craft</p>
-		<h2>Solid wood. Honest joinery. No shortcuts.</h2>
-		<p class="lede">
-			Elite Wood Furniture partners with independent woodworkers to build furniture the way it
-			used to be made — mortise-and-tenon joints, kiln-dried hardwood, and finishes that age
-			beautifully.
-		</p>
-		<a class="btn" href="/">Read Our Story</a>
+	<div class="container story-grid">
+		<div>
+			<p class="eyebrow">Our Craft</p>
+			<h2>Solid wood. Honest joinery. No shortcuts.</h2>
+			<p class="lede">
+				Elite Wood Furniture partners with independent woodworkers to build furniture the way it
+				used to be made — mortise-and-tenon joints, kiln-dried hardwood, and finishes that age
+				beautifully.
+			</p>
+			<a class="btn" href="/">Read Our Story</a>
+		</div>
+		<div class="story-image">
+			<img src="/images/sections/our-craft.jpg" alt="Craftsman hand-cutting a wood joint" loading="lazy" />
+		</div>
 	</div>
 </section>
 
@@ -92,23 +112,41 @@
 		height: min(82vh, 760px);
 		position: relative;
 		background-size: cover;
-		background-position: 62% 32%;
+		background-position: center;
+		overflow: hidden;
+	}
+
+	.hero-video {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-video {
+			display: none;
+		}
 	}
 
 	.hero::before {
 		content: '';
 		position: absolute;
 		inset: 0;
+		z-index: 1;
 		background: linear-gradient(
 			180deg,
-			rgba(20, 16, 12, 0.28) 0%,
-			rgba(20, 16, 12, 0.22) 45%,
-			rgba(20, 16, 12, 0.78) 100%
+			rgba(20, 16, 12, 0.32) 0%,
+			rgba(20, 16, 12, 0.26) 45%,
+			rgba(20, 16, 12, 0.8) 100%
 		);
 	}
 
 	.hero-caption {
 		position: absolute;
+		z-index: 2;
 		left: var(--gutter);
 		top: 34%;
 		max-width: 19rem;
@@ -136,6 +174,7 @@
 
 	.hero-overlay {
 		position: absolute;
+		z-index: 2;
 		left: 50%;
 		bottom: 3rem;
 		transform: translateX(-50%);
@@ -249,19 +288,84 @@
 		padding: 3rem 0;
 	}
 
+	.design-cta {
+		margin-top: 5rem;
+		min-height: 320px;
+		display: flex;
+		align-items: center;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+	}
+
+	.design-cta::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(90deg, rgba(20, 16, 12, 0.72) 0%, rgba(20, 16, 12, 0.18) 65%);
+	}
+
+	.design-cta-content {
+		position: relative;
+		max-width: 26rem;
+		padding: 3rem var(--gutter);
+		color: #f7f5f1;
+	}
+
+	.design-cta-content h2 {
+		font-size: clamp(1.5rem, 2.6vw, 2rem);
+		font-weight: 400;
+	}
+
+	.design-cta-content p {
+		margin: 0.75rem 0 1.5rem;
+		color: #e5ddd0;
+		font-size: 0.95rem;
+		line-height: 1.55;
+	}
+
+	.btn-solid-light {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.85rem 2rem;
+		font-size: 0.8rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		background: #f7f5f1;
+		color: #201d1a;
+		border: 1px solid #f7f5f1;
+		border-radius: 999px;
+		transition: background 0.2s ease;
+	}
+
+	.btn-solid-light:hover {
+		background: transparent;
+		color: #f7f5f1;
+	}
+
 	.story {
 		background: var(--color-bg-alt);
 		margin-top: 5rem;
 		padding: 5rem 0;
 	}
 
-	.story-inner {
-		max-width: 40rem;
+	.story-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
 	}
 
 	.story h2 {
 		font-size: 2rem;
 		margin: 0.75rem 0 1.25rem;
+	}
+
+	.story-image img {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
 	}
 
 	@media (max-width: 860px) {
@@ -275,6 +379,18 @@
 
 		.hero {
 			height: 640px;
+		}
+
+		.story-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.story-image {
+			order: -1;
+		}
+
+		.design-cta::before {
+			background: linear-gradient(180deg, rgba(20, 16, 12, 0.35) 0%, rgba(20, 16, 12, 0.75) 100%);
 		}
 	}
 
