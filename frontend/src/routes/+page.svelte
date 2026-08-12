@@ -89,6 +89,78 @@
 	{/if}
 </section>
 
+<section class="value-props container">
+	<div class="value-grid">
+		<div class="value-item">
+			<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3">
+				<circle cx="32" cy="32" r="23" />
+				<circle cx="32" cy="32" r="16" />
+				<circle cx="32" cy="32" r="9" />
+				<path d="M32 9v6M32 47v8" stroke-linecap="round" opacity="0.6" />
+			</svg>
+			<h3>Solid Hardwood</h3>
+			<p>Every piece is built from real oak, walnut, or maple &mdash; never particleboard.</p>
+		</div>
+
+		<div class="value-item">
+			<svg
+				viewBox="0 0 64 64"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.3"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M22 30V14a3 3 0 0 1 6 0v12" />
+				<path d="M28 26V10a3 3 0 0 1 6 0v16" />
+				<path d="M34 26V12a3 3 0 0 1 6 0v16" />
+				<path
+					d="M40 28V18a3 3 0 0 1 6 0v14c0 8-5 16-14 16h-2c-6 0-9-3-12-8l-6-10c-1.5-2.5 1-5.5 3.5-4l4.5 4"
+				/>
+			</svg>
+			<h3>Hand-Joined</h3>
+			<p>Mortise-and-tenon joinery, cut and fitted by hand in small batches.</p>
+		</div>
+
+		<div class="value-item">
+			<svg
+				viewBox="0 0 64 64"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.3"
+				stroke-linecap="round"
+			>
+				<path
+					d="M32 8a15 15 0 0 0-8 27.7c1.6 1.1 2.6 2.9 2.6 4.8V42h10.8v-1.5c0-1.9 1-3.7 2.6-4.8A15 15 0 0 0 32 8Z"
+				/>
+				<path d="M26.5 48h11M28 54h8" />
+				<path d="M32 4V2M12 12l-2-2M52 12l2-2M6 32H4M60 32h-2" />
+			</svg>
+			<h3>Smart Storage</h3>
+			<p>From hidden drawers to modular shelving, every detail solves a real problem.</p>
+		</div>
+
+		<div class="value-item">
+			<svg
+				viewBox="0 0 64 64"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.3"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<rect x="4" y="20" width="30" height="20" rx="1.5" />
+				<path d="M34 26h12l8 8v6H34z" />
+				<circle cx="16" cy="44" r="4.5" />
+				<circle cx="46" cy="44" r="4.5" />
+				<path d="M8 44h4M50.5 44h3.5" />
+			</svg>
+			<h3>Reliable Delivery</h3>
+			<p>White-glove delivery and assembly, in as little as a week.</p>
+		</div>
+	</div>
+</section>
+
 <section class="story">
 	<div class="container story-grid">
 		<div>
@@ -288,6 +360,44 @@
 		padding: 3rem 0;
 	}
 
+	.value-props {
+		margin-top: 4rem;
+		padding: 3.5rem 0;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.value-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
+		text-align: center;
+	}
+
+	.value-item svg {
+		width: 42px;
+		height: 42px;
+		margin: 0 auto 1.25rem;
+		color: var(--color-text);
+	}
+
+	.value-item h3 {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		margin-bottom: 0.65rem;
+	}
+
+	.value-item p {
+		font-size: 0.85rem;
+		line-height: 1.55;
+		color: var(--color-text-muted);
+		max-width: 15rem;
+		margin: 0 auto;
+	}
+
 	.design-cta {
 		margin-top: 5rem;
 		min-height: 320px;
@@ -392,6 +502,11 @@
 		.design-cta::before {
 			background: linear-gradient(180deg, rgba(20, 16, 12, 0.35) 0%, rgba(20, 16, 12, 0.75) 100%);
 		}
+
+		.value-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2.5rem 1.5rem;
+		}
 	}
 
 	@media (max-width: 640px) {
@@ -403,6 +518,11 @@
 	@media (max-width: 540px) {
 		.product-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.value-grid {
+			grid-template-columns: 1fr;
+			gap: 2.25rem;
 		}
 	}
 </style>
