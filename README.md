@@ -68,6 +68,7 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 | `images/products/haven-walnut-bookshelf.jpg` | [Pexels photo 2883049](https://www.pexels.com/photo/photo-of-a-wooden-bookshelf-2883049/) |
 | `images/sections/design-consultation.jpg` | [Pexels photo 6583355](https://www.pexels.com/photo/hand-of-a-person-holding-wooden-plank-samples-6583355/) |
 | `images/sections/our-craft.jpg` | [Pexels photo 5974283](https://www.pexels.com/photo/focused-artisan-making-hole-on-plank-with-hammer-and-chisel-5974283/) |
+| `images/sections/meet-sutton.jpg` | [Pexels photo 9220877](https://www.pexels.com/photo/brown-padded-armchairs-beside-the-glass-window-9220877/) |
 
 ### Third-party assets
 

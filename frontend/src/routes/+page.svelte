@@ -161,6 +161,18 @@
 	</div>
 </section>
 
+<section class="feature-cta" style="background-image: url('/images/sections/meet-sutton.jpg')">
+	<div class="feature-cta-content">
+		<p class="feature-cta-eyebrow">Meet Sutton</p>
+		<h2>Built Solid. Sits Soft.</h2>
+		<p class="feature-cta-body">
+			A hand-joined oak frame with room to stretch out &mdash; comfort that holds its shape,
+			season after season.
+		</p>
+		<a class="btn-shop-now" href="/">Shop Now</a>
+	</div>
+</section>
+
 <section class="story">
 	<div class="container story-grid">
 		<div>
@@ -454,6 +466,81 @@
 		color: #f7f5f1;
 	}
 
+	.feature-cta {
+		margin-top: 5rem;
+		min-height: 460px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		padding: 3rem var(--gutter);
+	}
+
+	.feature-cta::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			180deg,
+			rgba(20, 16, 12, 0) 0%,
+			rgba(20, 16, 12, 0.55) 32%,
+			rgba(20, 16, 12, 0.55) 72%,
+			rgba(20, 16, 12, 0) 100%
+		);
+	}
+
+	.feature-cta-content {
+		position: relative;
+		max-width: 38rem;
+		color: #f7f5f1;
+	}
+
+	.feature-cta-eyebrow {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		margin-bottom: 0.75rem;
+	}
+
+	.feature-cta-content h2 {
+		font-family: var(--font-body);
+		font-weight: 700;
+		font-size: clamp(2rem, 4.2vw, 3rem);
+		line-height: 1.15;
+	}
+
+	.feature-cta-body {
+		margin: 1.1rem auto 1.75rem;
+		max-width: 30rem;
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #ede8df;
+	}
+
+	.btn-shop-now {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.9rem 2.25rem;
+		background: #ffffff;
+		color: #201d1a;
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		border-radius: 4px;
+		transition: background 0.2s ease;
+	}
+
+	.btn-shop-now:hover {
+		background: #ede8df;
+	}
+
 	.story {
 		background: var(--color-bg-alt);
 		margin-top: 5rem;
@@ -506,6 +593,10 @@
 		.value-grid {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 2.5rem 1.5rem;
+		}
+
+		.feature-cta {
+			min-height: 360px;
 		}
 	}
 
