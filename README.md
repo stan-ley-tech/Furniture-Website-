@@ -52,9 +52,17 @@ The dev server prints the local URL (defaults to `http://localhost:5173`, but wi
 
 ## Deployment
 
+**Live:**
+
+- Frontend: https://furniture-website-jet-theta.vercel.app
+- Backend API: https://elite-wood-furniture-api.onrender.com (docs at `/docs`)
+
+Both redeploy automatically on push to `main` (Render and Vercel are each connected directly to the GitHub repo).
+
 - **Database:** Supabase project `elite-wood-furniture` (Postgres). Schema and seed data applied via migrations — see `backend/app/db.py` for the client setup.
-- **Backend:** deploys to [Render](https://render.com/) as a web service, defined by `render.yaml` at the repo root (connect the repo in the Render dashboard and it picks up the blueprint automatically). Set `SUPABASE_URL`, `SUPABASE_KEY`, and `FRONTEND_ORIGIN` (the deployed Vercel URL) as environment variables in Render — they're intentionally not stored in the blueprint.
-- **Frontend:** deploys to [Vercel](https://vercel.com/). Set `PUBLIC_API_BASE_URL` to the deployed Render backend URL as a Vercel environment variable.
+- **Backend:** deploys to [Render](https://render.com/) as a web service, defined by `render.yaml` at the repo root. Env vars set in the Render dashboard (not stored in the blueprint): `SUPABASE_URL`, `SUPABASE_KEY`, and `FRONTEND_ORIGIN` (comma-separated list of allowed Vercel origins, for CORS).
+- **Frontend:** deploys to [Vercel](https://vercel.com/), root directory `frontend`, framework auto-detected as SvelteKit (using `@sveltejs/adapter-vercel`). Env var set in the Vercel dashboard: `PUBLIC_API_BASE_URL` → the Render backend URL above.
+- **Render free-tier note:** the backend spins down after inactivity and takes ~30-50s to wake on the next request — the first load after idle time will be slow. Upgrade the Render plan before launch if that's not acceptable.
 
 ## Notes for the client
 

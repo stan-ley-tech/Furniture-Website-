@@ -24,8 +24,7 @@ export async function getProducts(
 		const res = await fetchFn(url);
 		if (!res.ok) throw new Error(`API error: ${res.status}`);
 		return await res.json();
-	} catch (e) {
-		console.error('DEBUG getProducts failed. API_BASE=', API_BASE, 'error=', e);
+	} catch {
 		return [];
 	}
 }
